@@ -3,6 +3,10 @@
 This project contains my notes, exercises, and visualizations based on the Introduction to Statistical Learning textbook.
 All code examples and illustrations are written in Python, with a focus on building intuition through clear visual explanations.
 
+## Full Notebooks
+If you would like to see the full notebooks with their anamations go to nbviewer in the link provided below
+https://nbviewer.org/github/brandonmir15/StatisticalLearning/tree/main/
+
 ## Contents: 
 
 - Python implementations of key concepts
