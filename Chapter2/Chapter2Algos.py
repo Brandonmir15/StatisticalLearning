@@ -64,6 +64,7 @@ def neighborhoodRegression(points:dict, neighborhood=0.4) -> list:
 
 # i need to fix ther parameters here to make it more compatible with the above functions
 def meanSquaredError(trueValues:list, predictedValues:list) -> float:
+
     
     vals = []
     for i in range(len(predictedValues)):
@@ -78,3 +79,51 @@ def meanSquaredError(trueValues:list, predictedValues:list) -> float:
     mse = round(sum(vals) / len(predictedValues), 2)
 
     return mse
+
+
+
+def KNN(points:list, values:list, predictionPoints:list, k=5) -> any:
+
+    results = []
+
+    for eachPredictionPoint in predictionPoints:
+
+        frequencyDict = {}
+        distances = []
+
+        for i in range(len(points)):
+
+            distance = math.dist(points[i], eachPredictionPoint)
+            distances.append((distance,i))  # make sure to keep the index in order to get the value later
+            # get the distances between every point and the prediction point
+        
+
+        distances.sort() # sort our values so we can grab the closet k neighbors
+        nearestNeighbors = distances[:k] # these are our k neaerst neighbors
+        nearestNeighborsValues = []
+
+        
+
+        for eachPoint in nearestNeighbors:
+            nearestNeighborsValues.append(values[eachPoint[1]])
+
+    
+        for eachValue in nearestNeighborsValues:
+            if eachValue not in frequencyDict:
+                frequencyDict[eachValue] = 1
+            else:
+                frequencyDict[eachValue] += 1
+        
+        
+        maxFreq = 0 # TODO: fix logic here
+        result = None
+
+        for eachItem in frequencyDict:
+            if frequencyDict[eachItem] > maxFreq:
+                maxFreq = frequencyDict[eachItem]
+                result = eachItem
+
+
+        results.append(result)
+    
+    return results
