@@ -11,6 +11,8 @@ https://nbviewer.org/github/brandonmir15/StatisticalLearning/tree/main/
 
 - Python implementations of key concepts
 
+- Coding the Machine Learning Algorithmns from Scratch so for a better understanding
+
 - Step-by-step walkthroughs of textbook exercises
 
 - Visualizations to help understand statistical learning methods
