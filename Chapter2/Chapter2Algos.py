@@ -2,6 +2,7 @@
 This file will just contain some of the algorithms we implimented throught this chatper
 
 """
+import math
 
 
 # this function takes in an array of tuples, the tuples being the points
@@ -82,7 +83,7 @@ def meanSquaredError(trueValues:list, predictedValues:list) -> float:
 
 
 
-def KNN(points:list, values:list, predictionPoints:list, k=5) -> any:
+def KNN(points, values, predictionPoints, k) -> any:
 
     results = []
 
