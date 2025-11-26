@@ -49,16 +49,18 @@ class SimpleLinearRegression:
 
 class MultipleLinearRegression:
 
-    def __init__(self, inputs, outputs):
+    def __init__(self, inputs, outputs, steps):
 
         self.inputs = inputs
         self.outputs = outputs
         self.weights = self.gradient_descent()
 
+        
 
 
-    def gradient_descent(self, lr=0.01, itterations=1000):
-        n= self.inputs.shape[0]
+
+    def gradient_descent(self,step=0.01, itterations=1000):
+        n = self.inputs.shape[0]
         p = self.inputs.shape[1]
         
     
@@ -69,8 +71,24 @@ class MultipleLinearRegression:
             error = prediction - self.outputs      
                 
             gradient = (2/n) * (self.inputs.T @ error)  # gradient equation
-            weights = weights - lr * gradient       # update step
+            weights = weights - step * gradient       # update step
             
 
-
         return weights
+    
+   
+    def predictions(self, newInputs:list[float]):
+        X = np.array(X) # here we change our array to an np array
+        if X.ndim == 1:
+            X = X.reshape(1, -1)
+
+        ones = np.ones((X.shape[0], 1)) 
+        X = np.hstack((ones, X))
+
+        return X @ self.weights
+
+
+
+
+def avg(nums:list) -> float:
+    return sum(nums)/len(nums)
